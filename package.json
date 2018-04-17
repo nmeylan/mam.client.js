@@ -4,13 +4,10 @@
     "version": "0.0.2",
     "main": "src/node.js",
     "scripts": {
-        "node": "webpack --progress --colors --watch --env node",
-        "web": "browserify -r ./src/node.js:mam.web.js > ./lib/mam.web.js",
-        "build": "webpack"
+        "build-node": "webpack --config webpack.config.node.js --progress --colors --env node",
+        "build-web": "webpack --config webpack.config.web.js --progress --colors"
     },
     "dependencies": {
-        "babel-polyfill": "^6.26.0",
-        "browserify": "^16.1.1",
         "iota.crypto.js": "github:iotaledger/iota.crypto.js",
         "iota.lib.js": "^0.4.2",
         "pify": "^3.0.0"
@@ -22,6 +19,7 @@
         "babel-loader": "7.1.2",
         "babel-plugin-add-module-exports": "0.2.1",
         "babel-preset-env": "1.6.1",
-        "webpack": "3.7.1"
+        "webpack": "3.7.1",
+        "webpack-merge": "^4.1.2"
     }
 }

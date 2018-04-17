@@ -1,6 +1,5 @@
 /// Deps
-require('babel-polyfill')
-const crypto = require('crypto')
+const randomBytes = require('randombytes')
 const Crypto = require('iota.crypto.js')
 const Encryption = require('./encryption')
 const pify = require('pify')
@@ -278,7 +277,7 @@ const isClient =
 
 const keyGen = length => {
     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ9'
-    const values = crypto.randomBytes(length)
+    const values = randomBytes(length)
     return Array.from(
       new Array(length), (x, i) => charset[values[i] % charset.length]
     ).join('')
